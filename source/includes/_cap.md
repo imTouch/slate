@@ -1,4 +1,4 @@
-# Rates
+# MarketCap
 
 ## Get All Alt Currencies
 
