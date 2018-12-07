@@ -122,3 +122,35 @@ Parameter | Default | Description
 --------- | ------- | -----------
 name | false | Name of the wallet.
 assetIds | false | Asset ID with json array.
+
+## Check For Updates
+
+```shell
+curl "https://bithub.imtouch.io/releases/latest?paltform=android&channel=release"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "version": "1.0.0",
+  "build": 123,
+  "logs": "Supports Ethereum Classic.",
+  "forced": true,
+  "dls": {
+    "direct": "https://imtouch.io/download/android/v1/Touch-1.0.0-123.apk",
+    "store": "https://play.google.com/store/apps/details?id=io.imtouch.gil"
+  }
+}
+```
+
+### HTTP Request
+
+`GET https://bithub.imtouch.io/releases/latest?paltform=<PLATFORM>&channel=<CHANNEL_NAME>`
+
+### URL Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+PLATFORM | false | `ios`, `android`.
+CHANNEL_NAME | false | `master`, `release`, `development`
