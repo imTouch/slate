@@ -244,6 +244,9 @@
                   <li>
                     <a href="#patch-a-specific-wallet" class="toc-h2 toc-link" data-title="Patch a Specific Wallet">Patch a Specific Wallet</a>
                   </li>
+                  <li>
+                    <a href="#check-for-updates" class="toc-h2 toc-link" data-title="Check For Updates">Check For Updates</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -487,6 +490,42 @@ curl <span class="s2">"api_endpoint_here"</span>
 <td>assetIds</td>
 <td>false</td>
 <td>Asset ID with json array.</td>
+</tr>
+</tbody></table>
+<h2 id='check-for-updates'>Check For Updates</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bithub.imtouch.io/releases/latest?paltform=android&amp;channel=release"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"build"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"logs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Supports Ethereum Classic."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"forced"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"dls"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"direct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://imtouch.io/download/android/v1/Touch-1.0.0-123.apk"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://play.google.com/store/apps/details?id=io.imtouch.gil"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://bithub.imtouch.io/releases/latest?paltform=&lt;PLATFORM&gt;&amp;channel=&lt;CHANNEL_NAME&gt;</code></p>
+<h3 id='url-parameters-2'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>PLATFORM</td>
+<td>false</td>
+<td><code>ios</code>, <code>android</code>.</td>
+</tr>
+<tr>
+<td>CHANNEL_NAME</td>
+<td>false</td>
+<td><code>master</code>, <code>release</code>, <code>development</code></td>
 </tr>
 </tbody></table>
 <h1 id='insight'>Insight</h1><h2 id='request-new-address'>Request New Address</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://insight.imtouch.io/addresses"</span>
