@@ -146,11 +146,11 @@ curl "https://bithub.imtouch.io/releases/latest?paltform=android&channel=release
 
 ### HTTP Request
 
-`GET https://bithub.imtouch.io/releases/latest?paltform=<PLATFORM>&channel=<CHANNEL_NAME>`
+`GET https://bithub.imtouch.io/releases/latest?platform=<PLATFORM>&channel=<CHANNEL_NAME>`
 
 ### URL Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-PLATFORM | false | `ios`, `android`.
-CHANNEL_NAME | false | `master`, `release`, `development`
+PLATFORM | false | `ios`, `android`
+CHANNEL_NAME | false | `beta`, `release`
