@@ -222,13 +222,16 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#marketcap" class="toc-h1 toc-link" data-title="MarketCap">MarketCap</a>
+            <a href="#market-capitalization" class="toc-h1 toc-link" data-title="Market Capitalization">Market Capitalization</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#get-all-alt-currencies" class="toc-h2 toc-link" data-title="Get All Alt Currencies">Get All Alt Currencies</a>
                   </li>
                   <li>
-                    <a href="#get-all-rates" class="toc-h2 toc-link" data-title="Get All Rates">Get All Rates</a>
+                    <a href="#get-rates" class="toc-h2 toc-link" data-title="Get Rates">Get Rates</a>
+                  </li>
+                  <li>
+                    <a href="#streaming" class="toc-h2 toc-link" data-title="Streaming">Streaming</a>
                   </li>
               </ul>
           </li>
@@ -285,7 +288,7 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the <strong>Touch</strong> API! You can use our API to access Touch API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
-<h1 id='marketcap'>MarketCap</h1><h2 id='get-all-alt-currencies'>Get All Alt Currencies</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/alt_currencies"</span>
+<h1 id='market-capitalization'>Market Capitalization</h1><h2 id='get-all-alt-currencies'>Get All Alt Currencies</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/alt_currencies"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -305,10 +308,10 @@
   </span><span class="s2">"CZK"</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all faitrates.</p>
+<p>This endpoint retrieves all alt currencies.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://rate.imtouch.io/faitrates</code></p>
-<h2 id='get-all-rates'>Get All Rates</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/rates?fsyms=BTC,ETH&amp;tsyms=USD,CNY"</span>
+<p><code>GET https://rate.imtouch.io/alt_currencies</code></p>
+<h2 id='get-rates'>Get Rates</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/rates?fsyms=BTC,ETH&amp;tsyms=USD,CNY"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -316,11 +319,15 @@
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"BTC"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"USD"</span><span class="p">:</span><span class="w"> </span><span class="mf">4341.09</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"CNY"</span><span class="p">:</span><span class="w"> </span><span class="mf">30119.00769189</span><span class="w">
+    </span><span class="s2">"CNY"</span><span class="p">:</span><span class="w"> </span><span class="mf">30119.00769189</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="mf">-0.02</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">3786450000</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="s2">"ETH"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"USD"</span><span class="p">:</span><span class="w"> </span><span class="mf">124.05</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"CNY"</span><span class="p">:</span><span class="w"> </span><span class="mf">860.6739100499999</span><span class="w">
+    </span><span class="s2">"CNY"</span><span class="p">:</span><span class="w"> </span><span class="mf">860.6739100499999</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"change"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0065</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"volume"</span><span class="p">:</span><span class="w"> </span><span class="mi">103726721</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -344,6 +351,30 @@
 <td>tsyms</td>
 <td>false</td>
 <td>Comma separated cryptocurrency symbols list to convert into.</td>
+</tr>
+</tbody></table>
+<h2 id='streaming'>Streaming</h2><h3 id='subs-watchlist'>Subs Watchlist</h3>
+<table><thead>
+<tr>
+<th>Event</th>
+<th>For Example</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>fsym</code>-&gt;<code>tsym</code></td>
+<td><code>BTC-&gt;USD</code>: 3511.47</td>
+<td>realtime rate in the specified currency.</td>
+</tr>
+<tr>
+<td><code>symbol</code>-C</td>
+<td><code>BTC-C</code>: -0.02</td>
+<td>daily rate change in the specified currency.</td>
+</tr>
+<tr>
+<td><code>symbol</code>-V</td>
+<td><code>BTC-V</code>: 3786450000</td>
+<td>daily volume in the specified currency.</td>
 </tr>
 </tbody></table>
 <h1 id='bithub'>Bithub</h1><h2 id='authentication'>Authentication</h2>
