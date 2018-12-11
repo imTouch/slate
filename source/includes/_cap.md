@@ -1,4 +1,4 @@
-# MarketCap
+# Market Capitalization
 
 ## Get All Alt Currencies
 
@@ -25,13 +25,13 @@ curl "https://rate.imtouch.io/alt_currencies"
 ]
 ```
 
-This endpoint retrieves all faitrates.
+This endpoint retrieves all alt currencies.
 
 ### HTTP Request
 
-`GET https://rate.imtouch.io/faitrates`
+`GET https://rate.imtouch.io/alt_currencies`
 
-## Get All Rates
+## Get Rates
 
 ```shell
 curl "https://rate.imtouch.io/rates?fsyms=BTC,ETH&tsyms=USD,CNY"
@@ -43,11 +43,15 @@ curl "https://rate.imtouch.io/rates?fsyms=BTC,ETH&tsyms=USD,CNY"
 {
   "BTC": {
     "USD": 4341.09,
-    "CNY": 30119.00769189
+    "CNY": 30119.00769189,
+    "change": -0.02,
+    "volume": 3786450000
   },
   "ETH": {
     "USD": 124.05,
-    "CNY": 860.6739100499999
+    "CNY": 860.6739100499999,
+    "change": 0.0065,
+    "volume": 103726721
   }
 }
 ```
@@ -64,3 +68,13 @@ Parameter | Default | Description
 --------- | ------- | -----------
 fsyms | false | The cryptocurrency symbol of interest.
 tsyms | false | Comma separated cryptocurrency symbols list to convert into.
+
+## Streaming
+
+### Subs Watchlist
+
+Event | For Example | Description
+--------- | ----------- | -----------
+`fsym`->`tsym` | `BTC->USD`: 3511.47 | realtime rate in the specified currency.
+`symbol`-C | `BTC-C`: -0.02 | daily rate change in the specified currency.
+`symbol`-V | `BTC-V`: 3786450000 | daily volume in the specified currency.
