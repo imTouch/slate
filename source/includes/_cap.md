@@ -42,22 +42,22 @@ curl "https://rate.imtouch.io/rates?fsyms=BTC,ETH&tsyms=USD,CNY"
 ```json
 {
   "BTC": {
-    "USD": 4341.09,
-    "CNY": 30119.00769189,
-    "change": -0.02,
-    "volume": 3786450000
-  },
-  "ETH": {
-    "USD": 124.05,
-    "CNY": 860.6739100499999,
-    "change": 0.0065,
-    "volume": 103726721
+    "USD": {
+      "rate": 4341.09,
+      "change": -0.02,
+      "volume": 3786450000
+    },
+    "CNY": {
+      "rate": 30119.0076,
+      "change": -0.02,
+      "volume": 3786450000
+    }
   }
 }
 ```
 
 This endpoint retrieves all faitrates.
-
+                                                                                               
 ### HTTP Request
 
 `GET https://bithub.imtouch.io/rates`
