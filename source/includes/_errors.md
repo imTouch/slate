@@ -16,3 +16,7 @@ Error Code | Meaning
 429 | Too Many Requests -- You're requesting too many kittens! Slow down!
 500 | Internal Server Error -- We had a problem with our server. Try again later.
 503 | Service Unavailable -- We're temporarily offline for maintenance. Please try again later.
+4000 | Invaild signature.
+4001 | Require valid id.
+4100 | Invaild requestPubKey.
+4200 | Notification already created.
