@@ -242,6 +242,12 @@
                     <a href="#authentication" class="toc-h2 toc-link" data-title="Authentication">Authentication</a>
                   </li>
                   <li>
+                    <a href="#get-assets" class="toc-h2 toc-link" data-title="Get Assets">Get Assets</a>
+                  </li>
+                  <li>
+                    <a href="#get-activities" class="toc-h2 toc-link" data-title="Get Activities">Get Activities</a>
+                  </li>
+                  <li>
                     <a href="#register-a-walelt" class="toc-h2 toc-link" data-title="Register a Walelt">Register a Walelt</a>
                   </li>
                   <li>
@@ -407,13 +413,91 @@ curl <span class="s2">"api_endpoint_here"</span>
 <td>Signature is the current request signature, using requestSigningKey, the m/1/1 derivative of the Extended Private Key.</td>
 </tr>
 </tbody></table>
+<h2 id='get-assets'>Get Assets</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/assets?</span><span class="nv">$limit</span><span class="s2">=1"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">503</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+        </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"defaulted"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ethereum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"symbol"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"derivationPath"</span><span class="p">:</span><span class="w"> </span><span class="s2">"m/44'/60'/0'"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ethereum"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"network"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mainnet"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"insight"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://insight.imtouch.io"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"units"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wei"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"decimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GWei"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"decimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"decimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="s2">"blockExplorer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://etherscan.io"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"feeUnits"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Wei"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"decimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"GWei"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"decimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"decimals"</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all assets.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://bithub.imtouch.io/assets</code></p>
+<h2 id='get-activities'>Get Activities</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/activities"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a acitivity."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"starts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"ends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oneroot.io"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint retrieves all assets.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://bithub.imtouch.io/activities</code></p>
 <h2 id='register-a-walelt'>Register a Walelt</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bithub.imtouch.io/wallets"</span>
   -X POST
   -H <span class="s2">"Content-Type: application/json"</span>
   -d <span class="s1">'{"requestPubKey":"03a3bec0d0cb725121ed4534a7857600079"}'</span>
 </code></pre>
 <p>This endpoint register a walelt.</p>
-<h3 id='http-request'>HTTP Request</h3>
+<h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://bithub.imtouch.io/wallets</code></p>
 <h3 id='body-parameters'>Body Parameters</h3>
 <table><thead>
@@ -488,7 +572,7 @@ curl <span class="s2">"api_endpoint_here"</span>
   </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-04T06:40:58.798Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-04T06:40:58.798Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PATCH https://bithub.imtouch.io/wallets/&lt;ID&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
@@ -538,7 +622,7 @@ curl <span class="s2">"api_endpoint_here"</span>
     </span><span class="s2">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://play.google.com/store/apps/details?id=io.imtouch.gil"</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://bithub.imtouch.io/releases/latest?platform=&lt;PLATFORM&gt;&amp;channel=&lt;CHANNEL_NAME&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
