@@ -468,29 +468,68 @@ curl <span class="s2">"api_endpoint_here"</span>
 <p>This endpoint retrieves all assets.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET https://bithub.imtouch.io/assets</code></p>
-<h2 id='get-activities'>Get Activities</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://rate.imtouch.io/activities"</span>
+<h2 id='get-activities'>Get Activities</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bithub.imtouch.io/activities?assetIds=524"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
-    </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a acitivity."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"starts"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"ends"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"action"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oneroot.io"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-12-06T04:00:06.341Z"</span><span class="p">,</span><span class="w">
-    </span><span class="p">}]</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"limit"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"skip"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5c36f1d85fe1057af191fb61"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ONEROOT 将为 RNT 持有者空投 BXA"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://oneroot.io"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-10T07:18:48.823Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updatedAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-10T07:18:48.823Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint retrieves all assets.</p>
+<p>This endpoint retrieves all activities.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://bithub.imtouch.io/activities</code></p>
+<h3 id='url-parameters'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>assetIds</td>
+<td>true</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='acitivity-status'>Acitivity Status</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>-1</code></td>
+<td>No date</td>
+</tr>
+<tr>
+<td><code>0</code></td>
+<td>In progress</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Has ended</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>has not started</td>
+</tr>
+</tbody></table>
 <h2 id='register-a-walelt'>Register a Walelt</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"https://bithub.imtouch.io/wallets"</span>
   -X POST
   -H <span class="s2">"Content-Type: application/json"</span>
@@ -574,7 +613,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>PATCH https://bithub.imtouch.io/wallets/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
+<h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -624,7 +663,7 @@ curl <span class="s2">"api_endpoint_here"</span>
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>GET https://bithub.imtouch.io/releases/latest?platform=&lt;PLATFORM&gt;&amp;channel=&lt;CHANNEL_NAME&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
+<h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
